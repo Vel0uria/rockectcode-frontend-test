@@ -1,15 +1,27 @@
 {
   "name": "rocketcode-test",
-  "version": "0.1.0",
-  "private": true,
+  "description": "Prueba técnica para la vacante de front-end developer en Rocket Code",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vel0uria/rockectcode-frontend-test.git"
+  },
+  "keywords": [
+    "frontend",
+    "test"
+  ],
+  "author": "sofia d",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vel0uria/rockectcode-frontend-test/issues"
+  },
+
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.4",
-    "@testing-library/user-event": "^13.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.4"
+    "react-scripts": "^5.0.0",
+    "styled-components": "^5.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -18,10 +30,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
