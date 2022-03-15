@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+//Custom hook que captura la información ingresada en los inputs de los formularios.
+
 const useForm = () => {
   const [form, setForm] = useState({})
 

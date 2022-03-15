@@ -1,7 +1,9 @@
 import React, { useEffect } from "react"
-//import { useEffect } from "react/cjs/react.production.min"
 import { StyledForm } from "./styles"
 import useForm from "./useForm"
+
+//Componente que renderiza el formulario para capturar el nombre y apellidos.
+
 const NameForm = ({ handleName }) => {
   const [form, handleInputs] = useForm()
   useEffect(() => {

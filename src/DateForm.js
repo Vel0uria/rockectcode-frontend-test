@@ -1,6 +1,9 @@
 import React, { useEffect } from "react"
 import { StyledForm } from "./styles"
 import useForm from "./useForm"
+
+//Componente que renderiza el formulario para capturar la fecha de nacimiento.
+
 const DateForm = ({ handleDate }) => {
   const [form, handleInputs] = useForm()
   useEffect(() => {
