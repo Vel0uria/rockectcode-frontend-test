@@ -1,69 +1,84 @@
-import React from "react"
-import styled from "styled-components"
+import React, { useState } from "react"
+import { UserInfo, Button } from "./styles"
+import NameForm from "./NameForm"
+import DateForm from "./DateForm"
+import ContactForm from "./ContactForm"
 
-function Form() {
-  const Button = styled.button`
-    background-color: PaleVioletRed;
-    border: none;
-    border-radius: 3px;
-    color: azure;
-    margin: 1em;
-    padding: .5em 0.7em;
-    font-weight: bold;
-  `
-  const Form = styled.form`
-    background-color: aliceblue;
-    border-color: LightSeaGreen;
-    border-style: solid;
-    border-radius: 10px;
-    display: flex;
-    align-content: center;
-    flex-direction: column;
-    margin-top: 3%;
-    margin-left: 25%;
-    padding: 20px;
-    max-width: 30vw;
-    max-height: 50vh;
-    input {
-      margin: 0.5em;
-      border-color: snow;
-      font-size: 1.5rem;
-    }
-    h3 {
-      display: flex;
-      align-self: center;
-    }
-  `
-  const UserInfo = styled.div`
-    background-color: PaleVioletRed;
-    padding: 10px;
-    max-width: 30vw;
-    max-height: 30vh;
-    margin-top: 3%;
-    margin-left: 25%;
-    text-align: center;
-  `
+function ChatForm() {
+  // const user = JSON.parse(localStorage.getItem("USER"))
+  const [userName, setUserName] = useState({})
+  const [userDate, setUserDate] = useState({})
+  const [usetContact, setUserContact] = useState({})
+  const [next, setNext] = useState(1)
 
-  const NameForm = () => {
-    return (
-      <Form>
-        <h3>¿Cuál es tu nombre?</h3>
-        <input type="text" name="nombre" placeholder="Nombre" />
-        <input type="text" name="segundo-nombre" placeholder="Segundo nombre" />
-        <input type="text" name="apellido-1" placeholder="Apellido paterno" />
-        <Button>Iniciar</Button>
-      </Form>
-    )
+  function handleNext() {
+    setNext(next + 1)
   }
+  function showAnswers(index) {
+    switch(index){
+      case 1: 
+      return(
+        <UserInfo>
+          <ul>
+          <li>
+            Nombre: {userName.name}
+          </li>
+          <li>
+            Segundo nombre: {userName.middleName}
+          </li>
+          <li>
+            Apellido paterno: {userName.lastName}
+          </li>
+        </ul>
+        </UserInfo>
+      )
+      default: return null
+    }
+  }
+  function handleForms (index) {
+    switch (index) {
+      case 1:
+        return   <NameForm handleName={e =>setUserName(e)}/>
+      case 2:
+        return <DateForm handleDate={e => setUserDate(e)}/>
+      case 3:
+        return <ContactForm handleContact={e => setUserContact(e)}/>
+      default:
+        return null
+    }
+  }
+
+
   return (
     <div>
       <h1>TEST</h1>
-      <NameForm />
-      <UserInfo>
+      <>
+      {handleForms(next)}
+      </>
+      {next <=2 &&
+      <Button onClick={handleNext}>Siguiente</Button>
+      }
+     <>
+     {showAnswers(next)}
+     </>
+      {/* <UserInfo>
         <h4>Respuestas</h4>
-      </UserInfo>
+        {/* {userAnswer !== {} && */}
+        {/* <ul>
+          <li>
+            Nombre: {userName.name}
+          </li>
+          <li>
+            Segundo nombre: {userName.middleName}
+          </li>
+          <li>
+            Apellido paterno: {userName.lastName}
+          </li>
+        </ul> */}
+        {/* } */}
+     {/*   </UserInfo> */}
     </div>
   )
 }
 
-export default Form
+export default ChatForm
