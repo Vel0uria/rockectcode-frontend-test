@@ -1,10 +1,12 @@
-import React from "react"
+import React, { useEffect } from "react"
+//import { useEffect } from "react/cjs/react.production.min"
 import { StyledForm } from "./styles"
 import useForm from "./useForm"
 const NameForm = ({ handleName }) => {
   const [form, handleInputs] = useForm()
-  handleName(form)
-  // localStorage.setItem("USER", JSON.stringify(form))
+  useEffect(() => {
+    handleName(form)
+  })
 
   return (
     <StyledForm>

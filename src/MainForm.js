@@ -6,7 +6,7 @@ import ContactForm from "./ContactForm"
 
 function MainForm() {
 
-  const [userName, setUserName] = useState({})
+   const [userName, setUserName] = useState({})
   const [userDate, setUserDate] = useState({})
   const [userContact, setUserContact] = useState({})
   const [next, setNext] = useState(1)
@@ -70,8 +70,9 @@ function MainForm() {
       default: return null
     }
   }
-  function handleForms (index) {
-    switch (index) {
+  function handleForms () {
+
+    switch (next) {
       case 1:  
       localStorage.setItem("USERNAME", JSON.stringify(userName))
        return  <NameForm handleName={e =>setUserName(e)}/>
@@ -91,7 +92,7 @@ function MainForm() {
     <div>
       <h1>TEST</h1>
       <>
-      {handleForms(next)}
+   {handleForms(next)}
       </>
       {next <=2 &&
       <Button onClick={handleNext}>Siguiente</Button>

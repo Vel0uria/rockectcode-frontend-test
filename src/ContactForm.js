@@ -1,9 +1,12 @@
-import React from "react"
-import { StyledForm, Button } from "./styles"
+import React, { useEffect } from "react"
+import { StyledForm } from "./styles"
 import useForm from "./useForm"
 const ContactForm = ({ handleContact }) => {
   const [form, handleInputs] = useForm()
-  handleContact(form)
+  useEffect(() => {
+    handleContact(form)
+  })
+
   return (
     <StyledForm>
       <h3>Datos de contacto</h3>
@@ -18,6 +21,7 @@ const ContactForm = ({ handleContact }) => {
       <input
         type="number"
         name="phone"
+        min="0"
         placeholder="teléfono celular"
         onChange={e => {
           handleInputs(e)

@@ -1,10 +1,12 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { StyledForm } from "./styles"
 import useForm from "./useForm"
 const DateForm = ({ handleDate }) => {
   const [form, handleInputs] = useForm()
-  handleDate(form)
-  localStorage.setItem("USER", JSON.stringify(form))
+  useEffect(() => {
+    handleDate(form)
+  })
+
   return (
     <StyledForm>
       <h3>¿Cuál es tu fecha de nacimiento?</h3>
