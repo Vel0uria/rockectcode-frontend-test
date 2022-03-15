@@ -4,7 +4,8 @@ import useForm from "./useForm"
 const NameForm = ({ handleName }) => {
   const [form, handleInputs] = useForm()
   handleName(form)
-  //console.log(form)
+  // localStorage.setItem("USER", JSON.stringify(form))
+
   return (
     <StyledForm>
       <h3>¿Cuál es tu nombre?</h3>

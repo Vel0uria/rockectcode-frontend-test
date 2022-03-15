@@ -1,9 +1,9 @@
 import React from "react"
 import { StyledForm, Button } from "./styles"
 import useForm from "./useForm"
-const ContactForm = ({ showAnswers }) => {
+const ContactForm = ({ handleContact }) => {
   const [form, handleInputs] = useForm()
-  // showAnswers(form)
+  handleContact(form)
   return (
     <StyledForm>
       <h3>Datos de contacto</h3>
@@ -23,7 +23,6 @@ const ContactForm = ({ showAnswers }) => {
           handleInputs(e)
         }}
       />
-      <Button>Iniciar</Button>
     </StyledForm>
   )
 }
